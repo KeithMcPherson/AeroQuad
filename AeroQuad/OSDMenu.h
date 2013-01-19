@@ -1,3 +1,6 @@
+#include <MaxSonarRangeFinder.h>
+#include <RangeFinder.h>
+
 /*
   AeroQuad v3.0.1 - February 2012
   www.AeroQuad.com

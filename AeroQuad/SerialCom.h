@@ -255,7 +255,12 @@ void readSerialCommand() {
           motorConfiguratorCommand[motor] = (int)readFloatSerial();
       }
       break;
-      
+    #ifdef RemotePCReceiver
+    case '7': //Send individual receiver commands 
+      for (byte channel = XAXIS; channel <= THROTTLE; channel++) {
+        setChannelValue(channel, readFloatSerial());
+      }
+    #endif
     case 'Z': // fast telemetry transfer <--- get rid if this?
       if (readFloatSerial() == 1.0)
         fastTransfer = ON;
